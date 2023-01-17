@@ -4,6 +4,12 @@ import React, { useState, useEffect } from 'react'
 interface Props {
   adventure: Adventure[]
   setAdventure: React.Dispatch<React.SetStateAction<Adventure[]>>
+  health: number
+  setHealth:React.Dispatch<React.SetStateAction<number>>
+  attack: number
+  setAttack :React.Dispatch<React.SetStateAction<number>>
+  accuracy: number
+  setAccuracy: React.Dispatch<React.SetStateAction<number>>
 }
 
 interface Adventure {
@@ -15,7 +21,7 @@ interface Adventure {
   items:number;
   villains:number;
 }
-const User: React.FC<Props> = ({adventure, setAdventure}) => {
+const User: React.FC<Props> = ({adventure, setAdventure,health,attack,accuracy}) => {
 
   const card = require('./images/yugio.png')
   const cardk = require('./images/knight.png')
@@ -26,8 +32,9 @@ const User: React.FC<Props> = ({adventure, setAdventure}) => {
       <h2 className='stat-name'>Assassin</h2>
       <img className='yugi-card'  src={card} alt="" />
       <img className='knight-card' src={cardk} alt=""/>
-      <h2 className='stat-h'>Health: {adventure[0].health}</h2>
-      <h2 className='stat-a'>Attack: {adventure[0].attack}</h2>
+      <h2 className='stat-h'>Health: {health}</h2>
+      <h2 className='stat-a'>Attack: {attack}</h2>
+      <h2 className='stat-a'>Attack: {accuracy}</h2>
     </div>
   )
 }

@@ -12,6 +12,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.start-screen{
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center; 
+}
+.start-game{
+  margin-top: 30rem;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  font-size: 100px;
+}
+
 .main{
   border-style: dotted;
   display: flex;
@@ -26,11 +44,41 @@ code {
   width: 100vw;
   height: 100%;
 }
+
+
+
 .Middle{
   background-color: rgb(198, 25, 25);
   height: 60%;
   width: 100%;
 }
+.bg-image{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('./components/images/store.jpeg');
+}
+.Store {
+  width: 100%;
+  height: 100%;
+}
+.h1-store{
+  color: white;
+}
+.story-bg{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+
+
+
+
 .Bottom{
   background-color: rgb(39, 141, 103);
   height: 40%;

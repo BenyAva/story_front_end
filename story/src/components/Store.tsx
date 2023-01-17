@@ -2,6 +2,8 @@ interface Props {
   setPage: React.Dispatch<React.SetStateAction<boolean>>
 }
 const Store: React.FC<Props> = ({ setPage }) => {
+  
+  const store = require('./images/store.jpeg')
 
   const showPage = () => {
       setPage(true)
@@ -9,9 +11,10 @@ const Store: React.FC<Props> = ({ setPage }) => {
   }
   
   return(
-      <div className="Store">
-          <h1>Store</h1>
+      <div className="Store bg-image">
+         <h1 className="h1-store">STORE</h1>
           <button onClick={() => showPage()}> Go To Story</button>
+          
       </div>
   )
 }
