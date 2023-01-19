@@ -29,8 +29,8 @@ const App: React.FC = () => {
   const [level,setLevel] = useState<number>(0)
 
   const[beginning, setBeginning] = useState<boolean>(true)
+  const[choice,setChoice] = useState<number>(0)
   const start = require('./components/images/loadingScreen.gif')
-
   ///////STATS////
   const [health, setHealth] = useState<number>(0)
   const [attack, setAttack] = useState<number>(0)
@@ -40,11 +40,11 @@ const App: React.FC = () => {
 
   ///villains///
 
-  const [villains, setVillains] = useState<[string,number,number][]>([["bob",10,15],["luke",10,14],['evil',10,20]])
+  const [villains, setVillains] = useState<[string,number,number][]>([["bob",10,15],["luke",80,60],['evil',10,20]])
   
   ////items///
 
-  const[items,setItems] = useState<[string,number,number][]>([["Potion of Health",20,30],['smoke bombs',20,0],['Potion of Attack',30,20],['Big sword',50,30]])
+  const[items,setItems] = useState<[string,number,number][]>([["Potion of Health",0,30],['smoke bombs',20,0],['Potion of Attack',30,20],['Big sword',50,30]])
   const[inventory, setInventory] = useState<[string,number][]>([["small blade",10],["food",10],["water",10],['magic',20]])
   
 
@@ -80,32 +80,70 @@ const App: React.FC = () => {
         getAdventure()
       })
     }
-  
+    const handleBattle = (): any => {
+      const villain = villains[0];
+      let villainHealth = villain[1];
+      const villainAttack = villain[2];
+      
+      // Simulating battle calculations
+      while (villainHealth > 0 && health > 0) {
+        if (Math.random() < accuracy) {
+          villainHealth -= attack;
+        }
+        setHealth(health- villainAttack);
+      }
+      
+      // Updating villain's health in state
+      setVillains((prevVillains) => {
+        const newVillains = [...prevVillains];
+        newVillains[0] = [villain[0], villainHealth, villainAttack];
+        return newVillains;
+      });
+      
+      
+      
+      // Check if user won the battle
+    //   if (health > 0) {
+    //     // User won the battle, give them a "Potion of Health" item
+    //     const potionIndex = items.findIndex((item) => item[0] === "Potion of Health");
+    //     if (potionIndex !== -1) {
+    //       setItems((prevItems) => {
+    //         const newItems = [...prevItems];
+    //         newItems.splice(potionIndex, 1);
+    //         return newItems;
+    //       });
+    //       setHealth(health + items[potionIndex][1]);
+    //     }
+    //   }
+     }
 
+     
 
   
 useEffect(() => {
   getAdventure()
-  setHealth(adventure.length ? adventure[0].health : 0)
-  setAttack(adventure.length ? adventure[0].attack : 0)
-  setAccuracy(adventure.length ? adventure[0].accuracy : 0)
-}, [adventure])
+}, [])
 
     return (
       <div className="App container-fluid">
         {beginning ?
           <>
-            <h1 className='start-game'onClick={() => setBeginning(false)}>Start Game</h1>
+            <h1 className='start-game'onClick={() => {setBeginning(false); setHealth(adventure[0].health); setAttack(adventure[0].attack); setAccuracy(adventure[0].accuracy)}}>Start Game</h1>
             <img className="start-screen" src={start} alt="" />
 
 
           </>
             :
           <div className='main container-fluid'>
+
             <Left adventure={adventure} setAdventure={setAdventure} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} gold={gold} setGold={setGold} villains={villains} setVillains={setVillains} items={items} setItems={setItems} inventory={inventory} setInventory={setInventory}/>
+
             <div className="right">
-              <Middle setPage={setPage} page={page} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} gold={gold} setGold={setGold} villains={villains} setVillains={setVillains} items={items} setItems={setItems} level={level} setLevel={setLevel}/>
-              <Bottom  health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy}/>
+
+              <Middle setPage={setPage} page={page} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} gold={gold} setGold={setGold} villains={villains} setVillains={setVillains} items={items} setItems={setItems} level={level} setLevel={setLevel} choice={choice} setChoice={setChoice} handleBattle={handleBattle}/>
+
+              <Bottom setPage={setPage} page={page} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} gold={gold} setGold={setGold} villains={villains} setVillains={setVillains} items={items} setItems={setItems} level={level} setLevel={setLevel} choice={choice} setChoice={setChoice} inventory={inventory} setInventory={setInventory} handleBattle={handleBattle}/>
+
             </div>
           </div>
             }

@@ -34,7 +34,7 @@ const User: React.FC<Props> = ({adventure, setAdventure,health,attack,accuracy})
       <img className='knight-card' src={cardk} alt=""/>
       <h2 className='stat-h'>Health: {health}</h2>
       <h2 className='stat-a'>Attack: {attack}</h2>
-      <h2 className='stat-a'>Attack: {accuracy}</h2>
+      {/* <h2 className='stat-a'>Accuracy: {accuracy}</h2> */}
     </div>
   )
 }

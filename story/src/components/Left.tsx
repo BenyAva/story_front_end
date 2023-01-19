@@ -18,7 +18,7 @@ interface Props {
   setVillains: React.Dispatch<React.SetStateAction<[string, number, number][]>>
   items: [string, number, number][]
   setItems: React.Dispatch<React.SetStateAction<[string, number, number][]>>
-  inventory: [string,number][]
+  inventory: [string, number][]
   setInventory: React.Dispatch<React.SetStateAction<[string, number][]>>
 }
 

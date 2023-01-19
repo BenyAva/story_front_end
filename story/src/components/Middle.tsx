@@ -20,17 +20,18 @@ interface Props {
     setItems: React.Dispatch<React.SetStateAction<[string, number, number][]>>
     level: number
     setLevel: React.Dispatch<React.SetStateAction<number>>
-
-
+    choice: number
+    setChoice: React.Dispatch<React.SetStateAction<number>>
+    handleBattle: () => any
 }
 
 
-const Middle: React.FC<Props> = ({ setPage, page,health,setAccuracy,setAttack,setHealth,attack,accuracy,gold,setGold,villains,setVillains,items,setItems,level,setLevel}) => {
+const Middle: React.FC<Props> = ({ setPage, page,health,setAccuracy,setAttack,setHealth,attack,accuracy,gold,setGold,villains,setVillains,items,setItems,level,setLevel,choice,setChoice,handleBattle}) => {
 
 return(
     <div className="Middle">
       {/* <h1>Middle</h1> */}
-        { page ? <Story setPage={setPage} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} gold={gold} setGold={setGold} villains={villains} setVillains={setVillains} items={items} setItems={setItems} level={level} setLevel={setLevel} /> : <Store setPage={setPage}/>}
+        { page ? <Story setPage={setPage} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} gold={gold} setGold={setGold} villains={villains} setVillains={setVillains} items={items} setItems={setItems} level={level} setLevel={setLevel} choice={choice} setChoice={setChoice} handleBattle={handleBattle} /> : <Store setPage={setPage}/>}
     
     </div>
 )
