@@ -21,7 +21,7 @@ const App: React.FC = () => {
     villains:number;
   }
 
-
+  const [setting, setSetting] = useState<boolean>(false)
   const [page, setPage] = useState<boolean>(true);
 
   const [adventure, setAdventure] = useState<Adventure[]> ([])
@@ -133,10 +133,11 @@ useEffect(() => {
 
 
           </>
-            :
+          :
+            !beginning && setting === false  ?
           <div className='main container-fluid'>
 
-            <Left adventure={adventure} setAdventure={setAdventure} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} gold={gold} setGold={setGold} villains={villains} setVillains={setVillains} items={items} setItems={setItems} inventory={inventory} setInventory={setInventory}/>
+            <Left adventure={adventure} setAdventure={setAdventure} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} gold={gold} setGold={setGold} villains={villains} setVillains={setVillains} items={items} setItems={setItems} inventory={inventory} setInventory={setInventory} level={level} setLevel={setLevel} setting={setting} setSetting={setSetting}/>
 
             <div className="right">
 
@@ -146,23 +147,33 @@ useEffect(() => {
 
             </div>
           </div>
-            }
+            :
+          setting === true ? 
+            <div className='settings-add'>
+                {/* <Add handleCreate = {handleCreate}/> */}
+              {adventure.map((adv: Adventure, index: number) => (
+                <div key={index}>
+                  <p>Health: {adv.health}</p>
+                  <p>Attack: {adv.attack}</p>
+                  <p>Accuracy: {adv.accuracy}</p>
+                  <p>Weapons: {adv.weapons}</p>
+                  <p>Items: {adv.items}</p>
+                  <p>Villains: {adv.villains}</p>
+                  <Edit handleUpdate={handleUpdate} getAdventure={getAdventure}  adventure={adventure} setAdventure={setAdventure} id={adventure[index].id} index={index}/>
+                  {/* <button onClick={()=> handleDelete(adventure[index])}>Delete</button> */}
+                  <button onClick={() => {setSetting(false)}}>exit</button>
+                </div>
+              ))}
+            </div>
+          
+          :null}
 
 
 
-        {/* <Add handleCreate = {handleCreate}/>
-        {adventure.map((adv: Adventure, index: number) => (
-          <div key={index}>
-            <p>Health: {adv.health}</p>
-            <p>Attack: {adv.attack}</p>
-            <p>Accuracy: {adv.accuracy}</p>
-            <p>Weapons: {adv.weapons}</p>
-            <p>Items: {adv.items}</p>
-            <p>Villains: {adv.villains}</p>
-            <Edit handleUpdate={handleUpdate} getAdventure={getAdventure}  adventure={adventure} setAdventure={setAdventure} id={adventure[index].id} index={index}/>
-            <button onClick={()=> handleDelete(adventure[index])}>Delete</button>
-          </div>
-        ))} */}
+
+            
+
+        
       </div>
     );
 }

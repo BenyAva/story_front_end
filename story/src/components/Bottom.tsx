@@ -70,69 +70,72 @@ const Bottom: React.FC<Props> = ({ setPage, page,health,setAccuracy,setAttack,se
 
   return (
     <div className='Bottom'>
-      {level === 0 ?
-        <button onClick={() => {currentLevel(1)}}>Begin Quest</button>
-      
-      :null}
-
-      {level === 1 && choice === 0 ?
-      <>
-        <button onClick={() => {setChoice(1); setDelayed(true)}}>Choice One</button>
-        <button onClick={() => {makeChoice(2); setDelayed(true)}}>Choice Two</button>
-      
-      </>
-      :null}
-
-      {level === 1?
-        <button onClick={() => {currentLevel(2); setChoice(0)}}>Next</button>
-      
-      :null}
-
-
-      {level === 2 && choice === 0 ?
-      <>
-        <button onClick={() => {setChoice(1); setDelayed(true)}}>Choice One</button>
-        <button onClick={() => {makeChoice(2); setDelayed(true)}}>Choice Two</button>
-      
-      </>
-      :null}
-
-      {level === 2?
-        <button onClick={() => {currentLevel(3); setChoice(0)}}>Next</button>
-      
-      :null}
-
-      {level === 3?
-            <button onClick={() => {handleBattle(); currentLevel(4)}}> Battle</button>
-        :null}
-      {level === 4?
-        <button onClick={() => {currentLevel(5); setChoice(0); handleRemove()}}>Next</button>
-      
-      :null}
-
-      {level === 5 && choice === 0 ?
-      <>
-        <button onClick={() => {setChoice(1); setDelayed(true)}}>Choice One</button>
-        <button onClick={() => {makeChoice(2); setDelayed(true)}}>Choice Two</button>
-      
-      </>
-      :null}
-
-      {level === 5?
-        <button onClick={() => {currentLevel(6); setChoice(0)}}>Next</button>
-      
-      :null}
-
-      {level === 6?
-            <button onClick={() => {handleBattle(); currentLevel(7)}}> Battle</button>
-        :null}
-      {level === 7? 
-        <button onClick={() => {currentLevel(8); setChoice(0)}}>The End</button>
+      <div className='Buttons'>
         
-      :null}
+        {level === 0 ?
+          <button className='btn btn-success btn-lg' onClick={() => {currentLevel(1)}}>Begin Quest</button>
+        
+        :null}
 
-        {/* <button onClick={() => showStory()}> Go To Story</button>
-        <button onClick={() => showPage()}> Go To Store</button> */}
+        {level === 1 && choice === 0 ?
+        <>
+          <button className='c btn btn-dark btn-lg' onClick={() => {setChoice(1); setDelayed(true)}}>Choice One</button>
+          <button  className='b btn btn-dark btn-lg' onClick={() => {makeChoice(2); setDelayed(true)}}>Choice Two</button>
+        
+        </>
+        :null}
+
+        {level === 1 && choice !== 0?
+          <button className='btn btn-success btn-lg' onClick={() => {currentLevel(2); setChoice(0)}}>Next</button>
+        
+        :null}
+
+
+        {level === 2 && choice === 0 ?
+        <>
+          <button className='c btn btn-dark btn-lg' onClick={() => {setChoice(1); setDelayed(true)}}>Choice One</button>
+          <button   className='b btn btn-dark btn-lg'onClick={() => {makeChoice(2); setDelayed(true)}}>Choice Two</button>
+        
+        </>
+        :null}
+
+        {level === 2 && choice !== 0?
+          <button className='btn btn-success btn-lg' onClick={() => {currentLevel(3); setChoice(0)}}>Next</button>
+        
+        :null}
+
+        {level === 3?
+              <button className='btn btn-warning' onClick={() => {handleBattle(); currentLevel(4)}}> Battle</button>
+          :null}
+        {level === 4?
+          <button className='btn btn-success btn-lg' onClick={() => {currentLevel(5); setChoice(0); handleRemove()}}>Next</button>
+        
+        :null}
+
+        {level === 5 && choice === 0 ?
+        <>
+          <button className='c btn btn-dark btn-lg' onClick={() => {setChoice(1); setDelayed(true)}}>Choice One</button>
+          <button className='b btn btn-dark btn-lg' onClick={() => {makeChoice(2); setDelayed(true)}}>Choice Two</button>
+        
+        </>
+        :null}
+
+        {level === 5 && choice !== 0?
+          <button className='btn btn-success btn-lg' onClick={() => {currentLevel(6); setChoice(0)}}>Next</button>
+        
+        :null}
+
+        {level === 6?
+              <button className='btn btn-warning' onClick={() => {handleBattle(); currentLevel(7)}}> Battle</button>
+          :null}
+        {level === 7? 
+          <button className='btn btn-secondary' onClick={() => {currentLevel(8); setChoice(0)}}>The End</button>
+          
+        :null}
+
+          {/* <button onClick={() => showStory()}> Go To Story</button>
+          <button onClick={() => showPage()}> Go To Store</button> */}
+      </div>
     </div>
   )
 }

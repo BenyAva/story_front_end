@@ -20,6 +20,10 @@ interface Props {
   setItems: React.Dispatch<React.SetStateAction<[string, number, number][]>>
   inventory: [string, number][]
   setInventory: React.Dispatch<React.SetStateAction<[string, number][]>>
+  level: number
+  setLevel: React.Dispatch<React.SetStateAction<number>>
+  setting: boolean
+  setSetting: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 interface Adventure {
@@ -31,11 +35,16 @@ interface Adventure {
   items:number;
   villains:number;
 }
-const Left: React.FC<Props> = ({adventure, setAdventure,setHealth,setAccuracy,setAttack,health,attack,accuracy,gold,setGold,setItems,items,inventory,setInventory,villains,setVillains}) => {
+const Left: React.FC<Props> = ({adventure, setAdventure,setHealth,setAccuracy,setAttack,health,attack,accuracy,gold,setGold,setItems,items,inventory,setInventory,villains,setVillains,level,setLevel,setSetting,setting}) => {
+  const sImage = require('./images/settings.jpeg')
   return (
     <div className='Left container-fluid'>
+
+      <img onClick={() => {setSetting(true)}} className="sImage"src={sImage} alt="" />
+
+
       <User adventure={adventure} setAdventure={setAdventure} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy}/>
-      <Info />
+      <Info level={level}/>
       <Inventory gold={gold} setGold={setGold} villains={villains} setVillains={setVillains} items={items} setItems={setItems} inventory={inventory} setInventory={setInventory}/>
       
     </div>

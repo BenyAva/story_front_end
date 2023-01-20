@@ -6,12 +6,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
+  overflow: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.settings-add{
+  background-color: white;
+}
+
+
 
 .start-screen{
   z-index: -1;
@@ -56,7 +62,10 @@ p{
   color: white;
   background-color: rgb(87, 72, 101);
   z-index: 1;
+
 }
+
+
 .bg-image{
   background-size: cover;
   background-repeat: no-repeat;
@@ -87,7 +96,18 @@ p{
 .Bottom{
   background-color: rgb(23, 69, 52);
   height: 40%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('./components/images/paper.jpeg');
   
+}
+.Buttons{
+  margin-top: 8rem;
+
+}
+.c{
+  margin-right: 4rem;
 }
 
 
@@ -95,12 +115,21 @@ p{
 
 
 .Left{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('./components/images/cobble.jpeg');
   width: 50%;
-  background-color: rgb(67, 67, 158);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+.sImage{
+  top: .75rem;
+  left: 2rem;
+  position: fixed;
+  width: 2rem;
 }
 .card{
   max-width: 540px;
@@ -112,18 +141,69 @@ p{
   align-items: center;
   flex-direction: column;
 }
+
+
+
 .Info{
+  border-style: groove;
+  border-width: 10px;
+  border-color: blanchedalmond;
   background-color: rgb(255, 0, 128);
   display: flex;
   width: 90%;
   height: 30%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('./components/images/townMap.png');
 }
+.Dot{
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  position: fixed;
+  top: 39rem;
+  left: 16rem;
+  background-color: rgb(121, 5, 5);
+}
+.Dot2{
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  position: fixed;
+  top: 29rem;
+  left: 17rem;
+  background-color: red;
+}
+.Dot3{
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  position: fixed;
+  top: 32rem;
+  left: 9rem;
+  background-color: red;
+}
+
+
 .Inventory{
-    background-color: rgb(229, 255, 0);
+    background-color: rgb(0, 0, 0);
     display: flex;
-    width: 90%;
+    border-style: ridge;
+    width: 50%;
     height: 10%;
 }
+.bounty-h{
+display: flex;
+justify-content: space-around;
+
+
+}
+.hunter{
+  
+  max-width: 45%;
+}
+
 .yugi-card{
   position: fixed;
   margin: auto;
@@ -147,4 +227,10 @@ p{
 .stat-a{
   z-index: 2;
   font-size: 1.5rem;
+}
+.typing-text {
+  animation: typing 2s steps(30, end);
+}
+@keyframes typing {
+  from { width: 0; }
 }

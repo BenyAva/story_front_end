@@ -13,11 +13,23 @@ interface Props {
 
 const Inventory: React.FC<Props> = ({gold,setGold,setItems,items,inventory,setInventory}) => {
 
+  const one = require('./images/bounty1.png')
+  const two = require('./images/bounty2.png')
+  const three = require('./images/bounty3.png')
+
   return (
-    <div className='Inventory'>
-            <h2 className='stat-a'>Gold: {gold}</h2>
-            <h2 className='stat-a'>Items:{items}</h2>
-            <h2 className='stat-a'>Inventory: {inventory}</h2>
+    <div className='Inventory container-fluid'>
+        <div className='bounty-h container' >
+
+          <img className='hunter' src={one} alt="" />
+          <img className='hunter' src={two} alt="" />
+          <img className='hunter' src={three} alt="" />
+
+        </div>
+
+
+
+      
     </div>
   )
 }
