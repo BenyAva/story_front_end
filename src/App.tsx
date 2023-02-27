@@ -126,13 +126,14 @@ useEffect(() => {
 
     return (
       <div className="App container-fluid">
+        <h1 className='screen_intro'>Screen Must Be Larger</h1>
         {beginning ?
-          <>
+          <div className='start_container'>
             <h1 className='start-game'onClick={() => {setBeginning(false); setHealth(adventure[0].health); setAttack(adventure[0].attack); setAccuracy(adventure[0].accuracy)}}>Start Game</h1>
             <img className="start-screen" src={start} alt="" />
 
 
-          </>
+          </div>
           :
             !beginning && setting === false  ?
           <div className='main container-fluid'>
@@ -168,7 +169,7 @@ useEffect(() => {
           
           :null}
 
-
+   
 
 
             

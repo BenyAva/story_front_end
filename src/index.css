@@ -234,3 +234,36 @@ justify-content: space-around;
 @keyframes typing {
   from { width: 0; }
 }
+
+@media screen and (min-width: 1200px) {
+  .sm-c{
+    display: none;
+    color: red;
+    font-size: 50px; ;
+    /* background-color: black; */
+  }
+  .screen_intro{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1144px) {
+  .start_container{
+    display: none;
+  }
+  .main{
+    display: none;
+  }
+}
+@media screen and (max-width: 1142px) {
+  
+  .screen_intro{
+    display: block;
+    margin-top: 10rem;
+    width: 100%;
+    font-size: 4rem;
+    color: red;
+  }
+  
+}
+  
